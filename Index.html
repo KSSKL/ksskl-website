@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>KSSKL | Kelab Silat Seni Keris Legasi</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0,0,0,.95);
+      border-bottom: 2px solid #c79b2b;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border: 2px solid #d4af37;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .brand h1 {
+      font-size: 17px;
+      color: #d4af37;
+    }
+
+    .brand p {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.76), rgba(0,0,0,.93)),
+        radial-gradient(circle at center, #6b0000 0%, #111 55%, #000 100%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero .small {
+      color: #d4af37;
+      font-size: 15px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero h2 {
+      font-size: clamp(38px, 8vw, 76px);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .hero h2 span {
+      color: #c30016;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 22px auto;
+      color: #ccc;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-red {
+      background: #b90016;
+      color: white;
+    }
+
+    .btn-gold {
+      border: 1px solid #d4af37;
+      color: #d4af37;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h3 {
+      font-size: 34px;
+      margin-top: 8px;
+    }
+
+    .about {
+      background: #101010;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: #c9c9c9;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid #262626;
+      border-top: 3px solid #b40015;
+      padding: 28px 22px;
+      border-radius: 8px;
+    }
+
+    .card h4 {
+      color: #d4af37;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .schedule {
+      background: #0a0a0a;
+    }
+
+    .schedule-list {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 4px;
+      border-bottom: 1px solid #333;
+    }
+
+    .schedule-item strong {
+      color: #d4af37;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #74000d, #150000);
+      text-align: center;
+    }
+
+    .cta h3 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #ddd;
+    }
+
+    footer {
+      background: #030303;
+      border-top: 1px solid #292929;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer h4 {
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-item {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="logo">KSSKL</div>
+
+      <div>
+        <h1>KSSKL</h1>
+        <p>Kelab Silat Seni Keris Legasi</p>
+      </div>
+    </div>
+
+    <ul class="menu">
+      <li><a href="#utama">Utama</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#jadual">Jadual</a></li>
+      <li><a href="#hubungi">Hubungi</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<section class="hero" id="utama">
+  <div class="hero-content">
+
+    <div class="small">
+      Warisan • Disiplin • Jati Diri
+    </div>
+
+    <h2>
+      Kelab Silat Seni<br>
+      <span>Keris Legasi</span>
+    </h2>
+
+    <p>
+      Memartabatkan seni persilatan Melayu melalui pendidikan,
+      disiplin, adat, kecergasan dan pembangunan jati diri generasi.
+    </p>
+
+    <div class="buttons">
+      <a href="#daftar" class="btn btn-red">
+        Daftar Ahli
+      </a>
+
+      <a href="#tentang" class="btn btn-gold">
+        Kenali KSSKL
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="about" id="tentang">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Tentang Kami</span>
+      <h3>Kelab Silat Seni Keris Legasi</h3>
+    </div>
+
+    <div class="about-content">
+      <p>
+        KSSKL merupakan sebuah kelab yang memberi penekanan kepada
+        pendidikan seni silat, pembangunan disiplin, kecergasan fizikal,
+        keyakinan diri serta penghayatan nilai dan warisan persilatan Melayu.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="program">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Program KSSKL</span>
+      <h3>Apa Yang Kami Tawarkan</h3>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h4>🥋 Silat Seni</h4>
+        <p>
+          Pembelajaran asas gerakan, bunga, buah,
+          pentas dan warisan seni persilatan.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>⚔️ Pencak Silat</h4>
+        <p>
+          Latihan olahraga, seni pertandingan,
+          strategi dan persediaan atlet.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>🏅 Bengkong & Grading</h4>
+        <p>
+          Sistem penilaian dan kenaikan tahap
+          berdasarkan silibus serta pencapaian pesilat.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>🏆 Kejuaraan</h4>
+        <p>
+          Penyertaan dalam pertandingan seni,
+          olahraga dan program pembangunan atlet.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>📜 Adat & Istiadat</h4>
+        <p>
+          Pendedahan kepada nilai, adab,
+          tanggungjawab dan tradisi persilatan.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>👨‍👩‍👧 Komuniti</h4>
+        <p>
+          Membentuk hubungan positif antara pesilat,
+          jurulatih, waris dan masyarakat.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="schedule" id="jadual">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Latihan</span>
+      <h3>Antara Gelanggang KSSKL</h3>
+    </div>
+
+    <div class="schedule-list">
+
+      <div class="schedule-item">
+        <strong>SK Desa Jasmin</strong>
+        <span>Selasa • 8:00 malam – 9:30 malam</span>
+      </div>
+
+      <div class="schedule-item">
+        <strong>SK Nilai Impian</strong>
+        <span>Rabu • 4:00 petang – 6:00 petang</span>
+      </div>
+
+      <div class="schedule-item">
+        <strong>SK Bandar Bukit Mahkota</strong>
+        <span>Khamis • 8:00 malam – 10:00 malam</span>
+      </div>
+
+      <div class="schedule-item">
+        <strong>SMK Dato' Mohd Said</strong>
+        <span>Sabtu • 9:00 pagi – 11:00 pagi</span>
+      </div>
+
+      <div class="schedule-item">
+        <strong>Gelanggang Dewasa KSSKL</strong>
+        <span>Ahad • 8:30 malam – 10:30 malam</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="cta" id="daftar">
+  <div class="container">
+
+    <h3>Sertai KSSKL</h3>
+
+    <p>
+      Pengambilan ahli lelaki dan perempuan.
+      Program latihan disediakan mengikut umur,
+      tahap dan keupayaan pesilat.
+    </p>
+
+    <div class="buttons">
+      <a href="#hubungi" class="btn btn-gold">
+        Hubungi Kami
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<footer id="hubungi">
+
+  <h4>KELAB SILAT SENI KERIS LEGASI</h4>
+
+  <p>
+    Negeri Sembilan, Malaysia
+  </p>
+
+  <p style="margin-top:15px;">
+    © 2026 KSSKL. Hak Cipta Terpelihara.
+  </p>
+
+</footer>
+
+</body>
+</html>
